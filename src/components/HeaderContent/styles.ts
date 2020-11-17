@@ -6,7 +6,7 @@ export const Container = styled.div`
    background: #00263d;
    border-radius: 0 0 30px 30px;
    position: relative;
-   height: 120px;
+   height: 135px;
    border-bottom: 1px solid #ccc;
    box-shadow: 0px 2px 6px rgba(100, 100, 100, 0.2);
 
@@ -15,19 +15,32 @@ export const Container = styled.div`
 `
 export const Content = styled.div`
    width:80%;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items:center;
    margin : auto;
 
-   img{
-      width: 20%;
-      margin-right: 20px;
+   .main{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items:center;
    }
+
+   img{
+      width: 16%;
+      margin-right: 20px;
+
+      @media only screen and (max-width: 830px) {
+         width: 36%;
+      }
+
+   }
+
 `
 
 export const BoxSearch = styled.div`
+   @media only screen and (max-width: 830px) {
+      display: none
+   }
+
    background: #ffffff;
    border: 1px solid #d1d1d1;
    height: 40px;
@@ -44,20 +57,20 @@ export const BoxSearch = styled.div`
       font-weight: 800;
       width: 100%;
       border:0;
-      background:red;
    }
 
    input {
       font-family: Open Sans;
       font-style: normal;
       font-weight: normal;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 19px;
 
       border: 0;
       border-left: 1px solid #d1d1d1;
       padding-left: 20px;
       outline: 0;
+      width: 300px;
    }
 
    label {
@@ -105,7 +118,20 @@ export const IconContent = styled.div`
 `
 export const IconContentText = styled.p`
    color: #FFF;
-   font-size: 14px;
+   font-size: 12px;
+`
+
+export const Popup = styled.div`
+   margin-left: 20px;
+   background: #FFF;
+   width: 100px;
+   height: 40px;
+   border-radius: 5px;
+   position: absolute;
+   top: 2px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 `
 
 export const Select = styled.select`
@@ -113,7 +139,9 @@ export const Select = styled.select`
    border-radius: 2em;
    border: 0;
    outline: 0;
-   width: 40%;
+   width: 35%;
+   padding-left: 10px;
+   margin-right: 10px;
    color: #172B4D;
    display: 'inline-block';
    font-size: 12px;

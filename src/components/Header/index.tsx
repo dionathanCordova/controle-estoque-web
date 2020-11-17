@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUsers, FaSignOutAlt } from 'react-icons/fa';
+import { FaUsers, FaSignOutAlt, FaUser } from 'react-icons/fa';
 
 import {
    Container,
@@ -15,6 +15,7 @@ const Header: React.FC = () => {
       <Container>
          <Content>
             <ContentGroup>
+               <FaUser size={12} />
                <Link> Olá Ide de Fátima Gabriel , seja bem vindo. </Link>
             </ContentGroup>
 
