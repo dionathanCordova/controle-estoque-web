@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaShoppingCart, FaArchive, FaSearch } from 'react-icons/fa';
+import Cart from '../Cart';
 
 import {
    Container,
@@ -15,6 +16,12 @@ import {
 } from './styles';
 
 const HeaderContent: React.FC = () => {
+   const [disabled, setDisabled] = useState(true);
+
+   function handleOpenCard() {
+      setDisabled(!disabled);
+   }
+   
    return (
       <Container>
          <Content>
@@ -44,9 +51,10 @@ const HeaderContent: React.FC = () => {
                         <FaShoppingCart size={20} color="#FFF" />
                      </IconContent>
                      
-                     <BoxGroup>
-                        <IconContentText>Carrinho</IconContentText>
-                        <span>0 item</span>
+                     <Cart disabled={disabled} />
+                     <BoxGroup onMouseOver={() => setDisabled(false)} onMouseLeave={() => setDisabled(true)}>
+                        {/* <IconContentText>Carrinho</IconContentText> */}
+                        <span>0</span>
                      </BoxGroup>
                   </BoxChard>
 
@@ -54,9 +62,9 @@ const HeaderContent: React.FC = () => {
                      <IconContent>
                         <FaArchive size={20} color="#FFF" />
                      </IconContent>
-                     <BoxGroup>
+                     {/* <BoxGroup>
                         <IconContentText>Pedidos</IconContentText>
-                     </BoxGroup>
+                     </BoxGroup> */}
                   </BoxChard>
                </BoxInfo>
             </div>

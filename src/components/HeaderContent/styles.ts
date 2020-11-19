@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
    padding-top: 20px;
    padding-bottom: 15px;
-   background: #00263d;
+   /* background: #00263d; */
+   background-color: #FFF;
    border-radius: 0 0 30px 30px;
    position: relative;
    height: 135px;
@@ -94,14 +95,24 @@ export const BoxChard = styled.div`
 export const BoxGroup = styled.div`
    display: flex;
    flex-direction: column;
-   align-items:flex-start;
+   align-items:center;
+   justify-content: center;
    line-height: 18px;
 
-   margin-left: 5px;
-
+   /* margin-left: 5px; */
+   position: absolute;
+   background:red;
+   margin-top: 20px;
+   margin-left: 45px;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
    span{
-      color: #c8e455;
+
+      /* color: #c8e455; */
+      color: #FFF;
       font-size: 14px;
+      padding: 3px;
    }
 `
 
@@ -109,7 +120,8 @@ export const IconContent = styled.div`
    width: 40px;
    height: 40px;
    border-radius: 50%;
-   background: #c8e455;
+   /* background: #c8e455; */
+   background: #000;
 
    display: flex;
    align-items: center;

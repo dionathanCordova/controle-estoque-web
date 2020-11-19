@@ -16,12 +16,11 @@ const Header: React.FC = () => {
          <Content>
             <ContentGroup>
                <FaUser size={12} />
-               <Link> Olá Ide de Fátima Gabriel , seja bem vindo. </Link>
+               <Link> Olá usuário, seja bem vindo. </Link>
             </ContentGroup>
 
             <ContentGroup>
                <Link> Institucional </Link>
-               <Link> Spirullina </Link>
                <Link> Empreender </Link>
                <Link> FAQ </Link>
             </ContentGroup>
@@ -29,7 +28,7 @@ const Header: React.FC = () => {
             <ContentGroup>
                <Button> 
                   <FaUsers size={13} color="#FFF"/>  
-                  <ButtonText>Escritório Virtual</ButtonText>
+                  <ButtonText>Area do usuário</ButtonText>
                </Button>
                
                <Button>
