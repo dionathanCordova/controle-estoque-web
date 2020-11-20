@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 
-import { FaPlus, FaMinus } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaWindowClose } from 'react-icons/fa';
+
+import Context from '../../contexts';
 
 import { 
    Container, 
@@ -15,64 +17,93 @@ import {
    ProductMarca,
    Price,
    QuantityContent,
-   Select
+   Select,
+   BtnContainerFooter,
+   ButtonFooterCart,
+   ButtonFooterCheckout,
+   SubTotal,
+   BoxSubtotal
 } from './styles';
 
-interface CartProp {
-   disabled: boolean;
-}
+const Cart: React.FC = () => {
 
-const Cart: React.FC<CartProp> = ({disabled}: CartProp ) => {
-   const [propDisabled, setDisabled] = useState(disabled);
-   console.log(propDisabled);
+   const {ToggleCart, disabledCart} = useContext(Context);
+
+   const roupas = [
+      {
+         'descricao': 'Camiseta Azul - 100% Algodão - Lisa',
+         'preco': 16.95,
+         'marca': 'Algo',
+         'imagePath': 'https://http2.mlstatic.com/D_NQ_NP_639305-MLB42948410314_072020-O.webp'
+      },
+      {
+         'descricao': 'Camiseta com estampa Gucci',
+         'preco': 2.290,
+         'marca': 'GUCCI',
+         'imagePath': 'https://cdn-images.farfetch-contents.com/12/41/63/18/12416318_11308944_480.jpg'
+      },
+      {
+         'descricao': 'Camiseta Fitness S.a Suplementos',
+         'preco': 29.99,
+         'marca': 'Algo',
+         'imagePath': 'https://http2.mlstatic.com/D_NQ_NP_728186-MLB40262583917_122019-O.webp'
+      }
+   ]
+
+   let subtotal = 0;
+   roupas.forEach(element => {
+      subtotal += element.preco
+   });
 
 
    return (
-      <Container disabled={disabled} onMouseOver={() => setDisabled(false)} onMouseLeave={() => setDisabled(true)}>
+      <Container disabled={disabledCart}>
          <Content>
-            <CartTitle>Carrinho</CartTitle>
+            <div className="headerCar">
+               <CartTitle>Carrinho</CartTitle>
+               <button onClick={ToggleCart}>
+                  <FaWindowClose size={22} color="#000"/>
+               </button>
+            </div>
             
-            <BoxProduct>
-               <ContentInfo>
-                  <ImageContent></ImageContent>
-                  <BoxPrimary>
-                     <ProductTitle>SPI BLOCK 63 CÁPSULAS</ProductTitle>
-                     <ProductMarca>Marca: teste</ProductMarca>
-                  </BoxPrimary>
-               </ContentInfo>
+            {roupas.map((prod) => {
+               return(
+                  <BoxProduct key={prod.descricao}>
+                     <ContentInfo>
+                        <ImageContent>
+                           <img src={prod.imagePath} alt=""/>
+                        </ImageContent>
+                        <BoxPrimary>
+                           <ProductTitle>{prod.descricao}</ProductTitle>
+                           <ProductMarca>Marca: {prod.marca}</ProductMarca>
+                        </BoxPrimary>
+                     </ContentInfo>
 
-               <ContentValue>
-                  <QuantityContent>
-                     <div id="qtd">
-                        2 x
-                     </div>
-                     <FaMinus id='remove' size={22} color="#FFF" />
-                     <FaPlus id="add" size={22} color="#FFF" />
-                  </QuantityContent>
-                  <Price>R$ 15.00</Price>
-               </ContentValue>
-            </BoxProduct>
+                     <ContentValue>
+                        <QuantityContent>
+                           <div id="qtd">
+                              2 x
+                           </div>
+                           <FaMinus id='remove' size={22} color="#FFF" />
+                           <FaPlus id="add" size={22} color="#FFF" />
+                        </QuantityContent>
+                        <Price>
+                           <span>R$</span> {prod.preco }
+                        </Price>
+                     </ContentValue>
+                  </BoxProduct>
+               )
+            })}
 
-            <BoxProduct>
-               <ContentInfo>
-                  <ImageContent></ImageContent>
-                  <BoxPrimary>
-                     <ProductTitle>SPI BLOCK 63 CÁPSULAS</ProductTitle>
-                     <ProductMarca>Marca: teste</ProductMarca>
-                  </BoxPrimary>
-               </ContentInfo>
+            <BoxSubtotal>
+               <p id="title">Subtotal</p> 
+               <SubTotal> <span>R$</span> {subtotal}</SubTotal>
+            </BoxSubtotal>
 
-               <ContentValue>
-                  <QuantityContent>
-                     <div id="qtd">
-                        2 x
-                     </div>
-                     <FaMinus id='remove' size={22} color="#FFF" />
-                     <FaPlus id="add" size={22} color="#FFF" />
-                  </QuantityContent>
-                  <Price>R$ 15.00</Price>
-               </ContentValue>
-            </BoxProduct>
+            <BtnContainerFooter>
+               <ButtonFooterCart><p>Carrinho</p></ButtonFooterCart>
+               <ButtonFooterCheckout><p>Finalizar compra</p></ButtonFooterCheckout>
+            </BtnContainerFooter>
          </Content>
       </Container>
    );

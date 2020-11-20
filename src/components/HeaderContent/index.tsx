@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaShoppingCart, FaArchive, FaSearch } from 'react-icons/fa';
 import Cart from '../Cart';
+import Context from '../../contexts';
 
 import {
    Container,
@@ -16,12 +17,8 @@ import {
 } from './styles';
 
 const HeaderContent: React.FC = () => {
-   const [disabled, setDisabled] = useState(true);
+   const { ToggleCart, disabledCart } = useContext(Context)
 
-   function handleOpenCard() {
-      setDisabled(!disabled);
-   }
-   
    return (
       <Container>
          <Content>
@@ -45,14 +42,15 @@ const HeaderContent: React.FC = () => {
                   <input type="text" placeholder="Pesquisar ..."/>
                </BoxSearch>
 
+               <Cart />
+
                <BoxInfo>
-                  <BoxChard>
+                  <BoxChard  onClick={ToggleCart}>
                      <IconContent>
                         <FaShoppingCart size={20} color="#FFF" />
                      </IconContent>
                      
-                     <Cart disabled={disabled} />
-                     <BoxGroup onMouseOver={() => setDisabled(false)} onMouseLeave={() => setDisabled(true)}>
+                     <BoxGroup>
                         {/* <IconContentText>Carrinho</IconContentText> */}
                         <span>0</span>
                      </BoxGroup>
