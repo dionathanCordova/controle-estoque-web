@@ -4,9 +4,13 @@ import './styles/global.css';
 
 import Routes from './routes';
 
+import {Provider} from './contexts';
+
 const App: React.FC = () => (
   <BrowserRouter>
-    <Routes />
+   <Provider>
+      <Routes />
+   </Provider>
   </BrowserRouter>
 );
 
