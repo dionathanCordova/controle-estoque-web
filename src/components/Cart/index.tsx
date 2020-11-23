@@ -1,6 +1,7 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { FaPlus, FaMinus, FaWindowClose } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 
 import Context from '../../contexts';
 
@@ -26,7 +27,7 @@ import {
 } from './styles';
 
 const Cart: React.FC = () => {
-
+   const history = useHistory();
    const {ToggleCart, disabledCart} = useContext(Context);
 
    const roupas = [
@@ -55,6 +56,10 @@ const Cart: React.FC = () => {
       subtotal += element.preco
    });
 
+   function handleRedirectPage(page: string) {
+      ToggleCart();
+      history.push(page);
+   }
 
    return (
       <Container disabled={disabledCart}>
@@ -101,8 +106,9 @@ const Cart: React.FC = () => {
             </BoxSubtotal>
 
             <BtnContainerFooter>
-               <ButtonFooterCart><p>Carrinho</p></ButtonFooterCart>
-               <ButtonFooterCheckout><p>Finalizar compra</p></ButtonFooterCheckout>
+               <ButtonFooterCheckout onClick={() => handleRedirectPage('/checkout')}>
+                  <p>Finalizar compra</p>
+               </ButtonFooterCheckout>
             </BtnContainerFooter>
          </Content>
       </Container>
