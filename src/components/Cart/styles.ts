@@ -60,13 +60,14 @@ export const BoxPrimary = styled.div`
 `
 
 export const ImageContent = styled.div`
-   width: 100px;
+   max-width: 25%;
    height: 90px;
-   background: #CCC;
+   /* background: #CCC; */
    margin-bottom: 34px;
 
    img{
-      width: 100%;
+      min-width: 100%;
+      height:auto;
    }
    
 `
@@ -130,7 +131,7 @@ export const QuantityContent = styled.div`
    }
 
    #remove {
-      background: #e33c28;
+      background: #d1d1d1;
       padding: 4px;
       border-radius: 5px;
       margin: 4px;
@@ -142,7 +143,7 @@ export const QuantityContent = styled.div`
    }
 
    #add {
-      background: #6A983C;
+      background: #d1d1d1;
       padding: 4px;
       border-radius: 5px;
       margin: 4px;
@@ -186,6 +187,8 @@ export const BoxSubtotal = styled.div`
 export const BtnContainerFooter = styled.div`
    height:70px;
    padding-bottom: 20px;
+
+   text-align: center;
 `
 
 export const ButtonFooterCart = styled.button`
@@ -211,10 +214,11 @@ export const ButtonFooterCart = styled.button`
 export const ButtonFooterCheckout = styled.button`
    background: #6A983C;
    color: #FFF;
-   width: 190px;
+   width: 95%;
+   margin: auto;
    border: 0;
    border-radius: 10px;
-   margin: 5px;
+   /* margin: 5px; */
    outline: 0;
    transition: background 0.2s;
 
