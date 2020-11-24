@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -7,6 +7,7 @@ import HeaderContent from '../../components/HeaderContent';
 import SearchBox from '../../components/SearchBox';
 import UrlPath from '../../components/UrlPath';
 import Star from '../../components/Star';
+import Endereco from '../../components/Checkout/Endereco';
 
 import { 
    Container,
@@ -17,10 +18,14 @@ import {
    ProductMarca,
    ContentValue,
    Price,
-   QuantityContent
+   QuantityContent,
+   HeaderStep,
+   FooterStep
 } from './styles';
 
 const Checkout: React.FC = () => {
+   const [step, setStep] = useState(1);
+
    return (
       <Container>
          <Header />
@@ -30,11 +35,23 @@ const Checkout: React.FC = () => {
 
          <main>
             <ContainerLeft>
-               ContainerLeft
+               <HeaderStep>
+                  <h3 id="title"> Endereço </h3>
+                  <p>Step 1 / 5</p>
+               </HeaderStep>
+
+               {step === 1 && (
+                  <Endereco />
+               )}
+               <FooterStep>
+                  <button>Voltar</button>
+                  <button>Próximo</button>
+               </FooterStep>
+
             </ContainerLeft>
           
             <ContainerRight>
-               <h3 id="title"> Summario </h3>
+               <h3 id="title"> Sumario </h3>
                <p id="subtitle"> Os valores podem sofrer alteração conforme escolha de itens, frete e taxa de juros por parcelamento.</p>
 
                <ChartContent>

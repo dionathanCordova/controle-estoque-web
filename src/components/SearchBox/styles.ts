@@ -12,7 +12,12 @@ export const Container = styled.div`
 `
 
 export const BoxSearch = styled.div`
- 
+   @media only screen and (max-width: 830px) {
+      margin: auto;
+      margin-top: 20px;
+      width: 100%;
+   }
+
    margin: auto;
    background: #ffffff;
    border: 1px solid #d1d1d1;

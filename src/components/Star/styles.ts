@@ -12,6 +12,12 @@ export const Content = styled.div`
 
    img{
       padding: 2px;
+      width: 20px;
+
+      @media only screen and (max-width: 830px) {
+         width: 30px;
+         margin-top: 10px;
+      }
    }
 
 `

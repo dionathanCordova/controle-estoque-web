@@ -23,7 +23,7 @@ const HeaderContent: React.FC = () => {
       <Container>
          <Content>
             <div className="main">
-               <img src="https://www.agorasite.com.br/wp-content/uploads/2016/11/Portfolio-image.png" alt=""/>
+               <h2>Shop Online</h2>
 
                <BoxSearch>
                   <Select name="" id="categotia">
@@ -51,7 +51,6 @@ const HeaderContent: React.FC = () => {
                      </IconContent>
                      
                      <BoxGroup>
-                        {/* <IconContentText>Carrinho</IconContentText> */}
                         <span>0</span>
                      </BoxGroup>
                   </BoxChard>
