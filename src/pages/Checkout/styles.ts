@@ -11,17 +11,39 @@ export const Container = styled.div`
 
       display: flex;
       flex-direction: row;
+
+      @media only screen and (max-width: 830px) {
+         flex-direction: column;
+      }
    }
 `
 
 export const ContainerLeft = styled.div`
-   background: red;
+    background: #FFFFFF;
+   border: 1px solid #D1D1D1;
+   box-sizing: border-box;
+   border-radius: 12px;
+
+   margin-right: 10px; 
 
    width: 70vw;
+
+   #title {
+      padding: 10px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 33px;
+      color: #151515;
+   }
+
+   @media only screen and (max-width: 830px) {
+      margin: auto;
+      width: 100%;
+   }
 `
 
 export const ContainerRight = styled.div`
-   background: green;
    width: 30vw;
 
    background: #FFFFFF;
@@ -47,6 +69,12 @@ export const ContainerRight = styled.div`
       color: #A9A9A9;
       padding: 10px;
    }
+
+   @media only screen and (max-width: 830px) {
+      margin: auto;
+      margin-top: 20px;
+      width: 100%;
+   }
 `
 
 export const ChartContent = styled.div`
@@ -56,13 +84,14 @@ export const ChartContent = styled.div`
 `
 
 export const BoxProduct = styled.div`
+  
 
    margin-bottom: 10px;
 
    #prodInfo {
       display: flex;
       flex-direction: row;
-
+    
       #contentImage {
          width: 40%;
          height: 100px;
@@ -70,6 +99,12 @@ export const BoxProduct = styled.div`
          img{
             padding-left: 20px;
             max-width: 80%;
+
+            @media only screen and (max-width: 830px) {
+               margin-top: 10px;
+               padding-left: 10px;
+               max-width: 100%;
+            }
          }
       }
 
@@ -108,6 +143,10 @@ export const ContentValue = styled.div`
    flex-direction:row;
    justify-content: space-between;
    width:100%;
+
+   @media only screen and (max-width: 830px) {
+      flex-direction: column;
+   }
 `
 
 export const QuantityContent = styled.div`
@@ -115,6 +154,10 @@ export const QuantityContent = styled.div`
    width: 110px;
    border: 1px solid #d1d1d1;
    height: 30px;
+
+   @media only screen and (max-width: 830px) {
+      margin: auto;
+   }
 
    display: flex;
    flex-direction: row;
@@ -164,4 +207,53 @@ export const Price = styled.div`
    span{
       font-size: 10px;
    }
+
+   @media only screen and (max-width: 830px) {
+      margin: auto;
+      font-size: 25px;
+
+      span{
+         font-size: 15px;
+      }
+   }
 `
+
+export const HeaderStep = styled.div`
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+
+   p{
+      margin-right: 10px;
+      color: #d1d1d1;
+      font-size: 14px;
+   }
+`
+
+export const FooterStep = styled.div`
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+
+   button{
+      background: #FFF;
+      border: 1px solid #d1d1d1;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 0 10px;
+      color: #000;
+      font-size: 14px;
+      outline: 0;
+      margin-bottom: 10px;
+
+      transition: background 0.2s;
+
+      :hover{
+         background: #6A983C;
+         color: #FFF;
+      }
+   }
+`
+

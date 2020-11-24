@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-   width: 100vw;
+   width: 100%;
    height: auto;
    background: #000000;
+   margin-top: 10px;
 `
 
 export const Content = styled.div`
@@ -143,7 +144,7 @@ export const Link = styled.a`
 export const Subfooter = styled.div`
    background: #FFF;
    margin:auto;
-   width: 100vw;
+   width: 100%;
 
    display: flex;
    flex-direction: column;
@@ -161,7 +162,8 @@ export const Subfooter = styled.div`
 export const CompanyInfo = styled.div`
    background: #FFF;
    margin:auto;
-   width: 100vw;
+   width: 100%;
+
 
    border-top: 1px solid #e6e6e6;
    text-align: center;
